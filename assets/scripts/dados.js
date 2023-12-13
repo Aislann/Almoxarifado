@@ -54,3 +54,27 @@ const produtos = [
 
 
 ]
+
+const departamentos = [
+    {
+        "idDep": 10,
+        "Descricao": "Sec. Educacao",
+        "Responsavel": "Jose",
+        "idFunc": 1,
+        "cargo" : "Gerente"
+    },
+    {
+        "idDep": 30,
+        "Descricao": "Sec. do Trabalho",
+        "Responsavel": "Luiz",
+        "idFunc": 2,
+        "cargo" : "Funcionario"
+    },
+    {
+        "idDep": 40,
+        "Descricao": "NAT",
+        "Responsavel": "Maria",
+        "idFunc": 3,
+        "cargo" : "Gestor"
+    },
+]

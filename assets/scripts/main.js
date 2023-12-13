@@ -93,11 +93,120 @@ document.getElementById('CodigoProduto').addEventListener("keyup",function(){
     } else{
         document.getElementById('DescricaoProduto').value="";
     }
+    if(produtosFiltrados.length > 0){
+        document.getElementById('Estoque').value=produtosFiltrados[0].Estoque;
+    } else{
+        document.getElementById('Estoque').value="";
+    }
+
 });
+
+document.getElementById('idDepartamento').addEventListener("keyup",function() {
+    const codigoPesquisado = document.getElementById('idDepartamento').value;
+    let departamentosFiltrados = departamentos.filter((p)=> p.idDep==codigoPesquisado);
+
+    if(departamentosFiltrados.length > 0){
+        document.getElementById('departamento').value=departamentosFiltrados[0].Descricao;
+    } else{
+        document.getElementById('departamento').value="";
+    }
+    if(departamentosFiltrados.length > 0){
+        document.getElementById('NomeFuncionario').value=departamentosFiltrados[0].Responsavel;
+    } else{
+        document.getElementById('NomeFuncionario').value="";
+    }
+    if(departamentosFiltrados.length > 0){
+        document.getElementById('idFuncionario').value=departamentosFiltrados[0].idFunc;
+    } else{
+        document.getElementById('idFuncionario').value="";
+    }
+    if(departamentosFiltrados.length > 0){
+        document.getElementById('cargo').value=departamentosFiltrados[0].cargo;
+    } else{
+        document.getElementById('cargo').value="";
+    }
+    
+});
+
+document.getElementById('idFuncionario').addEventListener("keyup",function() {
+    const codigoPesquisado = document.getElementById('idFuncionario').value;
+    let departamentosFiltrados = departamentos.filter((p)=> p.idFunc==codigoPesquisado);
+
+    if(departamentosFiltrados.length > 0){
+        document.getElementById('departamento').value=departamentosFiltrados[0].Descricao;
+    } else{
+        document.getElementById('departamento').value="";
+    }
+    if(departamentosFiltrados.length > 0){
+        document.getElementById('NomeFuncionario').value=departamentosFiltrados[0].Responsavel;
+    } else{
+        document.getElementById('NomeFuncionario').value="";
+    }
+    if(departamentosFiltrados.length > 0){
+        document.getElementById('idDepartamento').value=departamentosFiltrados[0].idDep;
+    } else{
+        document.getElementById('idDepartamento').value="";
+    }
+    if(departamentosFiltrados.length > 0){
+        document.getElementById('cargo').value=departamentosFiltrados[0].cargo;
+    } else{
+        document.getElementById('cargo').value="";
+    }
+    
+});
+
+
+
+
+
+
+
+document.getElementById('btn-gravar').addEventListener('click',function(){
+    const elementosObrigatorios = document.querySelectorAll('[data-obrigatorio="true"]');
+    console.log(elementosObrigatorios);
+    
+    elementosObrigatorios.forEach(function(item){
+        
+        if (item.value=="" || item.value==-1){
+            item.style.backgroundColor='red';
+        } 
+    })
+    const chkUrgenteValue = document.getElementById('urgente').checked;
+    const chkMedioValue = document.getElementById('medio').checked;
+    const chkBaixoValue = document.getElementById('baixo').checked;
+    if (chkUrgenteValue==false && chkMedioValue==false && chkBaixoValue==false){
+        const divPrioridade = document.getElementById("radioPrioridade");        
+        divPrioridade.classList.remove('radioPrioridade');
+        divPrioridade.classList.add('radioPrioridadeDesabilitado');        
+        document.getElementById('urgente').classList.remove('chkPrioridade');
+        document.getElementById('urgente').classList.add('chkPrioridadeDesabilitado');
+        document.getElementById('medio').classList.remove('chkPrioridade');
+        document.getElementById('medio').classList.add('chkPrioridadeDesabilitado');
+        document.getElementById('baixo').classList.remove('chkPrioridade');
+        document.getElementById('baixo').classList.add('chkPrioridadeDesabilitado');
+    }
+});
+
+function eventoClickPrioridadeHabilitarCor(){
+    const checkboxesPrioridade = document.querySelectorAll('.chkPrioridade');    
+    console.log(checkboxesPrioridade);
+    checkboxesPrioridade.forEach(function(checkbox) {
+        checkbox.addEventListener('click', function() {    
+            const divPrioridade = document.getElementById("radioPrioridade");
+            divPrioridade.classList.add('radioPrioridade');
+            divPrioridade.classList.remove('radioPrioridadeDesabilitado');        
+            document.getElementById('urgente').classList.add('chkPrioridade');
+            document.getElementById('urgente').classList.remove('chkPrioridadeDesabilitado');
+            document.getElementById('medio').classList.add('chkPrioridade');
+            document.getElementById('medio').classList.remove('chkPrioridadeDesabilitado');
+            document.getElementById('baixo').classList.add('chkPrioridade');
+            document.getElementById('baixo').classList.remove('chkPrioridadeDesabilitado');
+        });
+    });
+}
 
 
 
 adicionarCorAoFocarInput(); // Inicia a função ao carregar a página 
 carregarCategorias();
 carregarMotivos();
-
