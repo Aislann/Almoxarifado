@@ -19,17 +19,17 @@
             <div class="dadosPrincipais">
                 <div class="titulo">
                     <span>Dados Principais | Requisição Nº </span>
-                    <input type="number" id="inpNumero" data-obrigatorio="true">
+                    <input type="number" id="inpNumero" data-obrigatorio="true" >
                 </div>
                 <div class="camposPrincipais">
                     <div class="camposPrincipaisLinha1 linhasCampos">
                         <div class="grupo1 grupoInput">
                             <span>ID.</span>
-                            <input type="number" id="idDepartamento" data-obrigatorio="true">
+                            <input type="number" id="idDepartamento" data-obrigatorio="true" data-only-number="true">
                         </div>
                         <div class="grupo2 grupoInput">
                             <span>Departamento</span>
-                            <input type="text" id="departamento" data-obrigatorio="true">
+                            <input type="text" id="departamento" data-obrigatorio="true" >
                         </div>
                         <div class="grupo3 grupoInput">
                             <span>Data</span>
@@ -39,7 +39,7 @@
                     <div class="camposPrincipaisLinha2 linhasCampos">
                         <div class="grupo4 grupoInput">
                             <span>ID Func.</span>
-                            <input type="number" id="idFuncionario" data-obrigatorio="true">
+                            <input type="number" id="idFuncionario" data-obrigatorio="true" data-only-number="true">
                         </div>
                         <div class="grupo5 grupoInput">
                             <span>Nome Funcionário</span>
@@ -102,7 +102,7 @@
                         
                             <div class="grupoProduto">
                                 <span>Cod. Produto</span>
-                                <input type="text" id="CodigoProduto" data-obrigatorio="true">
+                                <input type="text" id="CodigoProduto" data-obrigatorio="true" data-only-number="true" >
                             </div>
                             <div class="grupoProdutoDescricao">
                                 <span>Descrição</span>
@@ -120,13 +120,16 @@
                                 </div>                           
                                 
                             </div>
+                            <div class="BtnInserirItens" id="BtnInserirItens">  
+                                <span>Adcionar</span>
+                            </div>
                             
                        
                   
                   
                      
                     </div>
-                    <div class="tabelaItens">
+                    <div class="tabelaItens" id="tabelaItens">
                         Criar a tabela aqui
                     </div>
                     <div class="grupoBtnInserirItens">
