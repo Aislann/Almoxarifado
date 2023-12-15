@@ -43,7 +43,7 @@ const produtos = [
         "Estoque": 10,
         "EstoqueMinimo": 5,
         "Unidade": "Un",
-        "Preco": 10.00
+        "Preco": 10.00,
     },
     {
         "idProduto": 2,
@@ -51,16 +51,16 @@ const produtos = [
         "Estoque": 5,
         "EstoqueMinimo": 5,
         "Unidade": "Un",
-        "Preco": 10.00
+        "Preco": 10.00,
     },
 
     {
         "idProduto": 3,
         "Descricao": "Notebook",
-        "Estoque": 15,
+        "Estoque": 4,
         "EstoqueMinimo": 5,
         "Unidade": "Un",
-        "Preco": 10.00
+        "Preco": 10.00,
     },
 
 

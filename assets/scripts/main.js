@@ -98,6 +98,12 @@ document.getElementById('CodigoProduto').addEventListener("keyup",function(){
     } else{
         document.getElementById('Estoque').value="";
     }
+    if(produtosFiltrados.length > 0){
+        document.getElementById('total').value=produtosFiltrados[0].Estoque;
+    } else{
+        document.getElementById('total').value="";
+    }
+
 
 });
 
@@ -286,6 +292,7 @@ adicionarCorAoFocarInput(); // Inicia a função ao carregar a página
 carregarCategorias();
 carregarMotivos();
 adcionarRegraCamposSomenteNumeros();
+criarBtnRemover()
 
 document.getElementById('BtnInserirItens').addEventListener('click',function(){
     const tabelaItens = document.getElementById("tabelaItens")
@@ -325,4 +332,68 @@ document.getElementById('BtnInserirItens').addEventListener('click',function(){
     linha.appendChild(tdTotalLinha)
     tabelaItens.appendChild(linha)
 
+    totalRequisicao.value = parseFloat(totalRequisicao.value) + parseFloat(campoQuantidade.value*produtoPesquisado[0].Preco)
+
+    tdBtnRemover.appendChild(criarBtnRemover(tabelaItens, linha))
+    linha.appendChild(tdBtnRemover)
+    tabelaItens.appendChild(linha)
 })
+
+function criarBtnRemover(tabela, objLinha, numeroLinha){
+    const btnRemoverItem = document.createElement('div')
+    btnRemoverItem.className = "BtnRemover"
+    btnRemoverItem.id  = 'btnRemover' + numeroLinha
+    btnRemoverItem.innerHTML = '<span class="BtnRemover" id="btnRemover">Remover</span>'
+
+    btnRemoverItem.addEventListener('click',function(){
+        if(objLinha && tabelaItens.contains(objLinha)){
+            tabelaItens.removeChild(objLinha)
+        }
+
+        const totalRequisicao = document.getElementById('total')
+        const colunas = objLinha.getElementByTagName('td')
+        let valorLinha = colunas[5].innerText
+
+        totalRequisicao.value = parseFloat(totalRequisicao.value=parseFloat(valorLinha))
+    })
+
+    return btnRemoverItem
+}
+
+
+
+// mudar cor do estoque
+
+
+function verificarEstoque() {
+    var produto = produtos[0];
+
+    var imgElement = document.getElementById('nivel');
+
+    // // Obtenha a referência dos elementos de quantidade de estoque
+    var quantidadeEstoqueElement = document.getElementById('Estoque');
+    var quantidadeEstoqueMinimoElement = document.getElementById('nivel');
+
+    // Novo caminho da imagem padrão
+    var novoCaminho = '/assets/img/verde.svg';
+
+    // Atualize os elementos de quantidade de estoque
+    quantidadeEstoqueElement.textContent = produto.Estoque;
+    quantidadeEstoqueMinimoElement.textContent = produto.EstoqueMinimo;
+
+    // Verifique se a quantidade de estoque é menor que a quantidade mínima
+    if (produto.Estoque < produto.EstoqueMinimo) {
+        // Se sim, altere o caminho da imagem para a imagem correspondente
+        novoCaminho = './assets/img/vermelho.svg';
+
+    } else if(produto.Estoque == produto.EstoqueMinimo){
+        novoCaminho = './assets/img/amarelo.svg';
+
+    }else {
+        novoCaminho = './assets/img/verde.svg';
+    }
+
+    imgElement.src = novoCaminho;
+}
+
+verificarEstoque()

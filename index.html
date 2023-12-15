@@ -112,27 +112,46 @@
                                 <span>Quantidade</span>
                                 <input type="text" id="Estoque" data-obrigatorio="true">
                             </div>
+                            <div class="grupoTotal">
+                                <span id="total"></span>
+                                
+                            </div>
                         
                         
-                            <div class="grupoStatusEstoque"> 
+                            <div class="grupoStatusEstoque" id="EstoqueMinimo"> 
                                 <div>
-                                    <img src="/assets/img/verde.svg" alt="">
+                                    <!-- <img src="./assets/img/verde.svg" alt="">
+                                    <img src="./assets/img/amarelo.svg" alt="">
+                                    <img src="./assets/img/vermelho.svg" alt=""> -->
+                                    <img src="" alt="" id="nivel">
                                 </div>                           
                                 
                             </div>
                             <div class="BtnInserirItens" id="BtnInserirItens">  
                                 <span>Adcionar</span>
                             </div>
+
                             
                        
                   
                   
                      
                     </div>
-                    <div class="tabelaItens" id="tabelaItens">
-                        Criar a tabela aqui
-                    </div>
+                   
+                        <table class="tabelaItens" id="tabelaItens">
+                            <tr>
+                                <th>Código</th>
+                                <th>Produto</th>
+                                <th>Qtd</th>
+                                <th>Un.</th>
+                                <th>Preço</th>
+                                <th>Total</th>
+                                <th>#</th>
+                            </tr>
+                        </table>
+                    
                     <div class="grupoBtnInserirItens">
+                        
                         
                     </div>
                     <div class="BtnInserirItens" id="btn-gravar">  
