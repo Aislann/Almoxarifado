@@ -362,38 +362,37 @@ function criarBtnRemover(tabela, objLinha, numeroLinha){
 
 
 
-// mudar cor do estoque
-
 
 function verificarEstoque() {
-    var produto = produtos[0];
+    const codigoProdutoInput = document.getElementById('CodigoProduto');
+    const codigoProduto = parseInt(codigoProdutoInput.value);
 
-    var imgElement = document.getElementById('nivel');
+    const produto = produtos.find(p => p.idProduto === codigoProduto);
 
-    // // Obtenha a referência dos elementos de quantidade de estoque
-    var quantidadeEstoqueElement = document.getElementById('Estoque');
-    var quantidadeEstoqueMinimoElement = document.getElementById('nivel');
+    if (produto) {
+        const nivelImg = document.getElementById('nivel');
 
-    // Novo caminho da imagem padrão
-    var novoCaminho = '/assets/img/verde.svg';
+        const estoqueMinimo = produto.EstoqueMinimo;
+        const limiteSuperior = estoqueMinimo * 1.1;
+        const limiteInferior = estoqueMinimo * 0.9;
 
-    // Atualize os elementos de quantidade de estoque
-    quantidadeEstoqueElement.textContent = produto.Estoque;
-    quantidadeEstoqueMinimoElement.textContent = produto.EstoqueMinimo;
-
-    // Verifique se a quantidade de estoque é menor que a quantidade mínima
-    if (produto.Estoque < produto.EstoqueMinimo) {
-        // Se sim, altere o caminho da imagem para a imagem correspondente
-        novoCaminho = './assets/img/vermelho.svg';
-
-    } else if(produto.Estoque == produto.EstoqueMinimo){
-        novoCaminho = './assets/img/amarelo.svg';
-
-    }else {
-        novoCaminho = './assets/img/verde.svg';
-    }
-
-    imgElement.src = novoCaminho;
+        if (produto.Estoque > limiteSuperior) {
+        } else if (produto.Estoque < limiteInferior) {
+            nivelImg.src = "./assets/img/vermelho.svg"; 
+        } else {
+            nivelImg.src = "./assets/img/amarelo.svg"; 
+        }
+}
 }
 
-verificarEstoque()
+
+//Adcionar numero do pedido
+var inpNumero = document.getElementById("inpNumero");
+
+    inpNumero.addEventListener("input", function() {
+        var numeroRequisicao = inpNumero.value;
+
+        var spanItensRequisicao = document.getElementById("itensRequisicao").querySelector("span");
+
+        spanItensRequisicao.textContent = "Itens da Requisição Nº " + numeroRequisicao;
+    });

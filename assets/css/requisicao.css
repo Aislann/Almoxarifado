@@ -15,10 +15,9 @@
     font-size: 20px;    
     align-items: center;   
     justify-content: center;  
-    background: linear-gradient(120deg, rgba(0, 29, 43, 1) 0%, rgba(0, 71, 56, 1) 15%, rgba(0, 107, 106, 1) 30%, rgba(57, 126, 104, 1) 50%, rgba(95, 146, 125, 1) 70%, rgba(128, 149, 136, 1) 100%);
+    background: linear-gradient(to bottom, #6495ED, #ffffff);
+    /* background: linear-gradient(120deg, rgba(0, 29, 43, 1) 0%, rgba(0, 71, 56, 1) 15%, rgba(0, 107, 106, 1) 30%, rgba(57, 126, 104, 1) 50%, rgba(95, 146, 125, 1) 70%, rgba(128, 149, 136, 1) 100%); */
 }
-
-
 
 .header{
     width: 50vw;
@@ -40,8 +39,9 @@
     margin-top: 10px;
     background-color: white;
     padding-top: 3vh;
-    padding-left: 1vw;
-    padding-right: 1vw;
+    padding-left: 1.5vw;
+    padding-right: 1.5vw;
+    padding-bottom: 1vh;
     border: 1px solid black;
     border-radius: 2rem;
     flex-wrap: wrap;
@@ -66,10 +66,12 @@
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
+    margin-left: 10px;
 }
 .grupoInput{
     display: flex;
     flex-direction: column;
+    margin-left: 8px;
     
 }
 
@@ -93,6 +95,7 @@
     border-width: 1px;
     border-radius: 5px;
     color: #000000;
+    margin-left: 8px;
 }
 
 
@@ -158,19 +161,55 @@
     align-items: end;        
     padding-top: 2vh;
     padding-bottom: 2vh;
-    flex-wrap: wrap;
     justify-content: center;
+    gap: 4px;
 }
 .grupoStatusEstoque{
     display: flex;
     justify-content: center;
     align-items: center;  
-    margin-left: 5px;           
+    margin-left: 5px;      
+    position: relative; /*legenda */
+    display: inline-block   
+      
 }
+
+.legenda {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color:  #fff2cc;
+    color: #fff;
+    padding: 10px;
+    display: none;
+    font-size: 15px;
+    padding: 20%;
+    width: 295px;
+    text-align: center;
+    margin: 0;
+}
+
+.legenda p {
+    display: flex;
+    align-items: center; 
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.legenda img {
+    max-width: 20px; 
+    margin-right: 8px;
+    border: 1px solid black;
+}
+
+.grupoStatusEstoque:hover .legenda {
+    display: block;
+}
+
 .grupoStatusEstoque img{
     display: flex;
     width: 30px;
-    height: 30px;
 }
 .grupoBtnInserirItens{
     display: flex;
@@ -179,20 +218,15 @@
     margin-left: 5px; 
 }
 
-.tabelaItens{
-    margin-top: 10px;
-}
-
 
 /* css para a tabela */
 .tabelaItens{
     border: 1px solid #CDCDCD;
     border-collapse: collapse;
-    width: 100%;
-    margin-bottom: 10px;
+    width: 94.5%;
     font-size: 16px;
     font-weight:unset;
-
+    margin-top: 10px;
 }
 .tabelaItens th{
     border: 1px solid #CDCDCD;
@@ -205,3 +239,30 @@
     border-collapse: collapse;
     padding-left: 10px;
 }
+
+#nivel{
+    margin-left: 4px;
+    border: 1px solid #CDCDCD;
+}
+
+.dadosPrincipais{
+    border: 1px solid #CDCDCD;
+    padding: 10px;
+    border-radius: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.camposItens{
+    border: 1px solid #CDCDCD;
+    padding: 10px;
+    width: 96.7%;
+    height: 70%;
+    border-radius: 15px;
+    margin-top: 10px;
+}
+
+#itensRequisicao{
+    margin-bottom: 10px;
+}
+

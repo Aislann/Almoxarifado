@@ -13,14 +13,14 @@
 
     <div class="main">
         <div class="header">
-            <span>Novo Pedido de Requisição</span>
+            <span> Pedido de Requisição de Saída</span>
         </div>
         <div class="conteudo">
+            <div class="titulo">
+                <span>Dados Principais | Requisição Nº </span>
+                <input type="number" id="inpNumero" data-obrigatorio="true" >
+            </div>
             <div class="dadosPrincipais">
-                <div class="titulo">
-                    <span>Dados Principais | Requisição Nº </span>
-                    <input type="number" id="inpNumero" data-obrigatorio="true" >
-                </div>
                 <div class="camposPrincipais">
                     <div class="camposPrincipaisLinha1 linhasCampos">
                         <div class="grupo1 grupoInput">
@@ -94,23 +94,23 @@
                 </div>
             </div>
             <div class="itensRequisicao">
-                <div class="titulo">
-                    <span>Dados Principais | Requisição Nº </span>                
+                <div class="titulo" id="itensRequisicao">
+                    <span>Itens da Requisição Nº </span>                
                 </div>
                 <div class="camposItens">
                     <div class="linhaAdicionarItens">
                         
                             <div class="grupoProduto">
                                 <span>Cod. Produto</span>
-                                <input type="text" id="CodigoProduto" data-obrigatorio="true" data-only-number="true" >
+                                <input type="text" id="CodigoProduto" data-only-number="true" onchange="verificarEstoque()">
                             </div>
                             <div class="grupoProdutoDescricao">
                                 <span>Descrição</span>
-                                <input type="text" id="DescricaoProduto" data-obrigatorio="true">
+                                <input type="text" id="DescricaoProduto">
                             </div>
                             <div class="grupoEstoque">
                                 <span>Quantidade</span>
-                                <input type="text" id="Estoque" data-obrigatorio="true">
+                                <input type="text" id="Estoque" data-only-number="true">
                             </div>
                             <div class="grupoTotal">
                                 <span id="total"></span>
@@ -120,10 +120,12 @@
                         
                             <div class="grupoStatusEstoque" id="EstoqueMinimo"> 
                                 <div>
-                                    <!-- <img src="./assets/img/verde.svg" alt="">
-                                    <img src="./assets/img/amarelo.svg" alt="">
-                                    <img src="./assets/img/vermelho.svg" alt=""> -->
-                                    <img src="" alt="" id="nivel">
+                                    <img src="./assets/img/branco.svg" alt="" id="nivel">
+                                    <div class="legenda">   
+                                        <p><img src="./assets/img/verde.svg" alt="Imagem 1">Estoque acima de 10% do Estoque mínimo</p>
+                                        <p><img src="./assets/img/amarelo.svg" alt="Imagem 2">Estoque abaixo de 10% do Estoque mínimo</p>
+                                        <p><img src="./assets/img/vermelho.svg" alt="Imagem 3">Estoque abaixo do Estoque mínimo</p>
+                                    </div>
                                 </div>                           
                                 
                             </div>
@@ -131,11 +133,7 @@
                                 <span>Adcionar</span>
                             </div>
 
-                            
-                       
-                  
-                  
-                     
+                        
                     </div>
                    
                         <table class="tabelaItens" id="tabelaItens">
