@@ -377,9 +377,11 @@ function verificarEstoque() {
         const limiteInferior = estoqueMinimo * 0.9;
 
         if (produto.Estoque > limiteSuperior) {
+            nivelImg.src = "assets/img/verde.svg";
         } else if (produto.Estoque < limiteInferior) {
             nivelImg.src = "assets/img/vermelho.svg"; 
-        } else {
+        } 
+        else {
             nivelImg.src = "assets/img/amarelo.svg"; 
         }
 }
