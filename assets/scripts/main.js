@@ -378,9 +378,9 @@ function verificarEstoque() {
 
         if (produto.Estoque > limiteSuperior) {
         } else if (produto.Estoque < limiteInferior) {
-            nivelImg.src = "./assets/img/vermelho.svg"; 
+            nivelImg.src = "assets/img/vermelho.svg"; 
         } else {
-            nivelImg.src = "./assets/img/amarelo.svg"; 
+            nivelImg.src = "assets/img/amarelo.svg"; 
         }
 }
 }
